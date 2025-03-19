@@ -26,9 +26,9 @@ int main() {
     Hsc3::Comm::CommApi cmApi("");
     Hsc3::Proxy::ProxyMotion pMot(&cmApi);
 
-    loadPosData(PosZero, 25, -55, 118, 58, true); // 机械臂总原点
+    loadPosData(PosZero, 0, 0, 0, 0, false); // 机械臂总原点
 
-    if (connectIPC(cmApi,"10.10.56.214",23234)) {
+    if (connectIPC(cmApi, "10.10.56.214", 23234)) {
         pMot.setOpMode(OP_T1);
         pMot.setWorkFrame(0, FRAME_BASE); // FRAME_BASE: 用户坐标系
         pMot.setWorkpieceNum(0, 0); // setWorkpieceNum(int8_t gpId, int8_t num): gpId 组号，num 工件坐标索引(0..15)
